@@ -64,7 +64,7 @@ export default function LoginScreen({navigation}) {
             <Image
               source={
                 hidePassword
-                  ? require('../../assets/icons/hidden.png')
+                  ? require('../../assets/icons/hide.png')
                   : require('../../assets/icons/eye.png')
               }
               style={styles.eyeIcon}
@@ -74,15 +74,14 @@ export default function LoginScreen({navigation}) {
 
         {/* Login */}
         <TouchableOpacity
-          style={styles.signInButton}
-          onPress={() => navigation.navigate("HomeTabs")}
-        
-        >
-         
-          <Text style={styles.signInText}>Sign In</Text>
-        </TouchableOpacity>
+  style={styles.signInButton}
+  onPress={() => navigation.replace("MainDrawer")}
+>
+  <Text style={styles.signInText}>Sign In</Text>
+</TouchableOpacity>
 
-        <TouchableOpacity>
+<TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
+
           <Text style={styles.forgot}>Forgot Password ?</Text>
         </TouchableOpacity>
       </View>
@@ -98,10 +97,13 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     justifyContent: 'center',
   },
-  container: {
-    padding: 25,
-    backgroundColor: '#fff',
-  },
+ container: {
+  padding: 25,
+  backgroundColor: '#fff',
+  minHeight: '100%',
+  justifyContent: 'center',
+},
+
 
   // IMAGE ON TOP
   topImage: {

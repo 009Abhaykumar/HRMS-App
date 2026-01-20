@@ -7,8 +7,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 // Screens
 import HomeScreen from '../screens/Bottomtabs/HomeScreen';
 import ProfileScreen from '../screens/Bottomtabs/ProfileScreen';
-import Attendance from '../screens/Bottomtabs/Attendance';
-import Imprest_Expense from '../screens/Bottomtabs/Imprest_Expense';
+import AttendanceScreen from '../screens/Bottomtabs/AttendanceScreen';
+import Imprest_ExpenseScreen from '../screens/Bottomtabs/Imprest_ExpenseScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -39,8 +39,8 @@ export default function TabNavigator() {
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Attendance" component={Attendance} />
-      <Tab.Screen name="Imprest" component={Imprest_Expense} />
+      <Tab.Screen name="Attendance" component={AttendanceScreen} />
+      <Tab.Screen name="Imprest" component={Imprest_ExpenseScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
   );

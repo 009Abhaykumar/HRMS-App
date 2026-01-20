@@ -1,13 +1,15 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-import DrawerNavigator from './DrawerNavigator';
+import { NavigationContainer } from '@react-navigation/native';
+import { Provider } from 'react-redux';
+import store from './src/redux/store';
+import RootNavigator from './src/navigation/RootNavigator';
 
-const Stack = createStackNavigator();
-
-export default function RootNavigator() {
+export default function App() {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="MainDrawer" component={DrawerNavigator} />
-    </Stack.Navigator>
+    <Provider store={store}>
+      <NavigationContainer>
+        <RootNavigator />
+      </NavigationContainer>
+    </Provider>
   );
 }

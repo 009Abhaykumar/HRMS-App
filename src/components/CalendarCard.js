@@ -15,7 +15,7 @@ export default function CalendarCard({
 
         <MonthSelector
           selectedMonth={selectedMonth}
-          onChange={(m) => onChangeMonth(m)}
+          onChange={onChangeMonth}
         />
       </View>
 

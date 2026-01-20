@@ -1,0 +1,3 @@
+export const SET_MONTH_DATA = "SET_MONTH_DATA";
+export const SET_SALARY_SLIPS = "SET_SALARY_SLIPS";
+export const SET_ADVANCE_SLIPS = "SET_ADVANCE_SLIPS";

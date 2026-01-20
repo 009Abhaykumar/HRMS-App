@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-const Leaves = () => {
+const LeavesSection = () => {
   
   const renderLeaveCard = (title, count) => (
     <View style={styles.leaveCard}>
@@ -75,4 +75,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Leaves;
+export default LeavesSection;

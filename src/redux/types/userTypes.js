@@ -1,0 +1,8 @@
+export const UPDATE_USER = "UPDATE_USER";
+
+export const ADD_DOCUMENT = "ADD_DOCUMENT";
+export const UPDATE_DOCUMENT = "UPDATE_DOCUMENT";
+export const DELETE_DOCUMENT = "DELETE_DOCUMENT";
+
+/* -------- BANK DETAILS -------- */
+export const UPDATE_BANK_DETAILS = "UPDATE_BANK_DETAILS";

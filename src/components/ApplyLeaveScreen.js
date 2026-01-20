@@ -10,7 +10,7 @@ import {
   Platform,
 } from "react-native";
 
-import Leaves from "./Leaves";
+import LeavesSection from "./LeavesSection";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { Picker } from "@react-native-picker/picker";
 
@@ -79,7 +79,7 @@ export default function ApplyLeaveScreen() {
       showsVerticalScrollIndicator={false}
       contentContainerStyle={{ paddingBottom: 60 }}
     >
-      <Leaves />
+      <LeavesSection />
 
       <Text style={styles.sectionTitle}>Leave Duration</Text>
 

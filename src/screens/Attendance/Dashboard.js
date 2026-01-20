@@ -1,27 +1,63 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
+import AttendanceDateRange from "../../components/AttendanceDateRange";
+import AttendanceBehaviourCard from "../../components/AttendanceBehaviourCard";
+import CalendarCard from "../../components/CalendarCard";
+import LeaveRequestCard from "../../components/AttendanceComponents/LeaveRequestCard";
+import LeaveSummaryCard from "../../components/AttendanceComponents/LeaveSummaryCard";
+import OutDutySummaryCard from "../../components/AttendanceComponents/OutDutySummaryCard";
+import OutDutyRequestCard from "../../components/AttendanceComponents/OutDutyRequestCard";
+
 
 export default function Dashboard() {
+
+  const [selectedMonth, setSelectedMonth] = useState("December");
+  const attendanceData = [
+    { name: "Present", count: 22, color: "#2ecc71", legendFontColor: "#333" },
+    { name: "Out Duty", count: 7, color: "#2980b9", legendFontColor: "#333" },
+    { name: "Leave", count: 0, color: "#1abc9c", legendFontColor: "#333" },
+    { name: "Absent", count: 2, color: "#e74c3c", legendFontColor: "#333" },
+  ];
+
   return (
     <View>
 
+
+
+      {/* Calendar Card */}
+      <CalendarCard
+        selectedMonth={selectedMonth}
+        onChangeMonth={(m) => setSelectedMonth(m)}
+      />
+
+
+
+
+
+
+      {/* ----------------- ATTENDANCE BEHAVIOUR ----------------- */}
+
+      <AttendanceBehaviourCard
+        onTime={11}
+        late={0}
+        halfDay={1}
+        absent={2}
+      />
+
+
+
       {/* ----------------- DATE RANGE SECTION ----------------- */}
-      <View style={styles.dateCard}>
-        <View>
-          <Text style={styles.dateLabel}>Attendance Starts</Text>
-          <Text style={styles.dateLabel}>From</Text>
-        </View>
 
-        <View style={styles.dateBox}>
-          <Text style={styles.dateText}>14-10-2025</Text>
-        </View>
+      <AttendanceDateRange
+        initialStartDate={new Date("2025-10-14")}
+        initialEndDate={new Date("2025-11-13")}
+        onDateChange={(data) => console.log("Updated:", data)}
+      />
 
-        <Text style={styles.toText}>To</Text>
 
-        <View style={styles.dateBox}>
-          <Text style={styles.dateText}>13-11-2025</Text>
-        </View>
-      </View>
+
+
+
 
       {/* ----------------- LEAVE CARDS ----------------- */}
       <View style={styles.leaveRow}>
@@ -49,98 +85,42 @@ export default function Dashboard() {
       </View>
 
       {/* ----------------- TOTAL LEAVE REQUESTS ----------------- */}
-      <View style={styles.bigCard}>
-        <Text style={styles.bigTitle}>Total Leave Requests</Text>
 
-        <View style={styles.rowItem}>
-          <Text style={styles.label}>Pending Requests</Text>
-          <Text style={styles.count}>0</Text>
-        </View>
-
-        <View style={styles.rowItem}>
-          <Text style={styles.label}>Approved Requests</Text>
-          <Text style={styles.count}>0</Text>
-        </View>
-
-        <View style={styles.rowItem}>
-          <Text style={styles.label}>Rejected Requests</Text>
-          <Text style={styles.count}>0</Text>
-        </View>
-      </View>
+      <LeaveRequestCard
+        title="Total Leave Requests"
+        pending={0}
+        approved={0}
+        rejected={0}
+      />
 
       {/* ----------------- TOTAL LEAVES ----------------- */}
-      <View style={styles.bigCard}>
-        <Text style={styles.bigTitle}>Total Leaves - 0</Text>
-
-        <View style={styles.legendRow}>
-          <Text style={styles.dotBlue}>●</Text>
-          <Text style={styles.legend}>Short Day Leave - 0</Text>
-        </View>
-
-        <View style={styles.legendRow}>
-          <Text style={styles.dotYellow}>●</Text>
-          <Text style={styles.legend}>HalfDay Leave - 0</Text>
-        </View>
-
-        <View style={styles.legendRow}>
-          <Text style={styles.dotRed}>●</Text>
-          <Text style={styles.legend}>Single Day Leave - 0</Text>
-        </View>
-
-        <View style={styles.legendRow}>
-          <Text style={styles.dotGreen}>●</Text>
-          <Text style={styles.legend}>Multi Day Leave - 0</Text>
-        </View>
-
-        <View style={styles.chartEmpty} />
-      </View>
+      <LeaveSummaryCard
+        title="Total Leaves"
+        total={0}
+        shortDay={0}
+        halfDay={0}
+        singleDay={0}
+        multiDay={0}
+      />
 
       {/* ----------------- TOTAL OUT DUTIES ----------------- */}
-      <View style={styles.bigCard}>
-        <Text style={styles.bigTitle}>Total Out Duties - 1</Text>
-
-        <View style={styles.legendRow}>
-          <Text style={styles.dotBlue}>●</Text>
-          <Text style={styles.legend}>Short Day OutDuty - 0</Text>
-        </View>
-
-        <View style={styles.legendRow}>
-          <Text style={styles.dotYellow}>●</Text>
-          <Text style={styles.legend}>HalfDay OutDuty - 0</Text>
-        </View>
-
-        <View style={styles.legendRow}>
-          <Text style={styles.dotRed}>●</Text>
-          <Text style={styles.legend}>Single Day OutDuty - 0</Text>
-        </View>
-
-        <View style={styles.legendRow}>
-          <Text style={styles.dotGreen}>●</Text>
-          <Text style={styles.legend}>Multi Day OutDuty - 1</Text>
-        </View>
-
-        <View style={styles.chartEmpty} />
-      </View>
+      <OutDutySummaryCard
+        title="Total Out Duties"
+        total={1}
+        shortDay={0}
+        halfDay={0}
+        singleDay={0}
+        multiDay={1}
+      />
 
       {/* ----------------- TOTAL OUT DUTY REQUESTS ----------------- */}
-      <View style={styles.bigCard}>
-        <Text style={styles.bigTitle}>Total OutDuty Requests</Text>
 
-        <View style={styles.rowItem}>
-          <Text style={styles.label}>Pending Requests</Text>
-          <Text style={styles.count}>1</Text>
-        </View>
-
-        <View style={styles.rowItem}>
-          <Text style={styles.label}>Approved Requests</Text>
-          <Text style={styles.count}>0</Text>
-        </View>
-
-        <View style={styles.rowItem}>
-          <Text style={styles.label}>Rejected Requests</Text>
-          <Text style={styles.count}>0</Text>
-        </View>
-      </View>
+      <OutDutyRequestCard
+        title="Total OutDuty Requests"
+        pending={1}
+        approved={0}
+        rejected={0}
+      />
 
     </View>
   );

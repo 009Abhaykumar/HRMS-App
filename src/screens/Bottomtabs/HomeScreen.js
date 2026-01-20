@@ -12,7 +12,7 @@ import { useNavigation } from '@react-navigation/native';
 import ApplyButton from "../../components/ApplyButton";
 import ApplyModal from "../../components/ApplyModal";
 import CalendarCard from "../../components/CalendarCard";
-import Leaves from "../../components/Leaves";
+import LeavesSection from "../../components/LeavesSection";
 import { Entypo } from '../../common/vector'
 import { MonthSelector } from "../../components/MonthSelector";
 
@@ -93,7 +93,7 @@ export default function HomeScreen() {
         </View>
 
         {/* Leaves */}
-        <Leaves />
+        <LeavesSection />
 
         {/* Announcement Tabs */}
         <View style={styles.card}>
