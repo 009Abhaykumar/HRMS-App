@@ -14,6 +14,8 @@ import {
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { useSelector, useDispatch } from "react-redux";
 
+
+
 export default function DocumentsSection() {
   const userDocs = useSelector((state) => state.user.documents);
   const dispatch = useDispatch();
